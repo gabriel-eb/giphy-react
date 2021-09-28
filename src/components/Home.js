@@ -1,6 +1,5 @@
 import { Component } from 'react'
-import { getFID } from 'web-vitals';
-import GifElement from './Gifs';
+import Gif from './Gif'
 
 
 
@@ -13,11 +12,13 @@ class Home extends Component {
     }
 
     componentDidMount(){
-        fetch('https://api.giphy.com/v1/gifs/trending?api_key=N10RDtXqzJIfgeVunNgnAKCi2Phk6S6q&limit=10&rating=g')
+        const url = 'https://api.giphy.com/v1/gifs/trending'
+        const API_KEY = 'N10RDtXqzJIfgeVunNgnAKCi2Phk6S6q'
+        const limit = 9
+
+        fetch(`${url}?api_key=${API_KEY}&limit=${limit}&rating=g`)
             .then(response => response.json())
-            .then(response => {
-                this.setState({ topGifs: response.data });
-            })
+            .then(response => this.setState({ topGifs: response.data }))
             .catch(error => console.log(error));
     }    
 
@@ -29,10 +30,10 @@ class Home extends Component {
                     { 
                         this.state.topGifs.map((gif) => {
                             return(
-                                <GifElement
-                                    link = {gif.images.original.id}
-                                    title = {gif.title}
-                                    url= {gif.images.original.url}
+                                <Gif
+                                    key={gif.id}
+                                    title={gif.title}
+                                    url={gif.images.original.url}
                                 />
                             )
                         })
