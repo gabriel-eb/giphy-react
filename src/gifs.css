@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+.App {
+    background-color: #fdfdfd;
+    padding-top: 16px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.Link {
+    margin: 8px;
+    padding: 8px;
+    background-color: #282c34    ;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    
+}
+
+#contenedor {
+    display: flex;
+    width: 98vw;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gifElement {
+    padding: 8px;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 30vw;
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+.gifElement img {
+    width: 90%;
+}

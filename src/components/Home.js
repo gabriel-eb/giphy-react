@@ -1,5 +1,7 @@
 import { Component } from 'react'
 import { getFID } from 'web-vitals';
+import GifElement from './Gifs';
+
 
 
 class Home extends Component {
@@ -23,14 +25,15 @@ class Home extends Component {
         return (
             <div>
                 <h1>Top Gifs</h1>
-                <ul>
+                <ul id="contenedor">
                     { 
                         this.state.topGifs.map((gif) => {
                             return(
-                                <li key={gif.images.original.id}>
-                                    <img src={gif.images.original.url}  alt={gif.images.original.id} />
-                                    <h3>{gif.title}</h3>
-                                </li>
+                                <GifElement
+                                    link = {gif.images.original.id}
+                                    title = {gif.title}
+                                    url= {gif.images.original.url}
+                                />
                             )
                         })
                     }

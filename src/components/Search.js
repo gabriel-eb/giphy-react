@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { getFID } from 'web-vitals';
-
+import GifElement from './Gifs';
 
 class Search extends Component {
     constructor() {
@@ -26,14 +26,15 @@ class Search extends Component {
         return (
             <div>
                 <h1>Results: </h1>
-                <ul>
+                <ul id="contenedor">
                     {
                         this.state.gifs.map((gif) => {
-                            return (
-                                <li key={gif.images.original.id}>
-                                    <img src={gif.images.original.url} alt={gif.images.original.id} />
-                                    <h3>{gif.title}</h3>
-                                </li>
+                            return(
+                                <GifElement
+                                    link = {gif.images.original.id}
+                                    title = {gif.title}
+                                    url= {gif.images.original.url}
+                                />
                             )
                         })
                     }
